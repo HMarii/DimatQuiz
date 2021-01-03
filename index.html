@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+	<title>Pöcök Quiz</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="container" class="container">
+		<div id="question-container" class="hide">
+			<div id="question">Kérdés</div>
+			<div id="answer-buttons" class="btn-grid">
+				<button class="btn">Válasz 1</button>
+				<button class="btn">Válasz 2</button>
+				<button class="btn">Válasz 3</button>
+				<button class="btn">Válasz 4</button>
+			</div>
+			<p>Pontok: <span id="right-answers">0</span></p>
+		  </div>
+			<div class="controls">
+				<input class="playerName" type="text" name="playerName" id="playerName" placeholder="Név">
+				<br>
+				<label id="soundlbl" for="soundchck">Hangok:</label>
+				<input id="soundchck" type="checkbox" name="soundchck" checked="true">
+				<br>
+				<button id="start-btn" class="start-btn btn">Mehet</button>
+				<button id="next-btn" class="next-btn btn hide">Következő</button>
+		</div>
+	</div>
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
