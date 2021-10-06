@@ -27,7 +27,7 @@ let jovalaszok = 0
 var perfect = new Audio()
 var roblox = new Audio()
 var victory = new Audio()
-perfect.src = "wolfsounds/perfect.mp3"
+perfect.src = "wolfsounds/verygood.mp3"
 roblox.src = "wolfsounds/huhaeznehez.mp3"
 victory.src = "wolfsounds/verygood.mp3"
 
