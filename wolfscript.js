@@ -2,10 +2,8 @@
 
 
 // Welcome speech
-var welcomeMsgs = ["Sok szerencsét pöcök!", "Egy kalappal pöcök!", "A macska rúgjón meg pöcök!", "Mehet a játszma pöcök!"];
-var msg = new SpeechSynthesisUtterance(welcomeMsgs[Math.floor(Math.random() * 4)]);
-var msg2 = new SpeechSynthesisUtterance("Ahhoz, hogy megtaláld öregmacit előbb megfelelően kell válaszolnod az adott kérdésekre!");
-msg2.rate = 1.5;
+var welcomeMsgs = ["Ezeket már áltiba vettük!", "A nagymami tortájára írd fel", "Jujujuj", "Dobd el a bundáskenyeret!"];
+var msg = new SpeechSynthesisUtterance(welcomeMsgs[Math.floor(Math.random() * 4)]);S
 msg.rate = 1.75;
 
 var cookiemsg = new SpeechSynthesisUtterance("Most szerintem futhatsz pöcök")
@@ -29,7 +27,7 @@ var roblox = new Audio()
 var victory = new Audio()
 perfect.src = "wolfsounds/verygood.mp3"
 roblox.src = "wolfsounds/huhaeznehez.mp3"
-victory.src = "wolfsounds/verygood.mp3"
+victory.src = "wolfsounds/huhaa.mp3"
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -52,7 +50,6 @@ function startGame() {
 		name.rate = 0.5;
 		window.speechSynthesis.speak(name);
 	}
-	window.speechSynthesis.speak(msg2);
 	window.speechSynthesis.speak(msg);
 	}
 	jovalaszok = 0
