@@ -1,5 +1,3 @@
-// Name
-
 
 // Welcome speech
 var welcomeMsgs = ["Ezeket már áltiba vettük!", "A nagymami tortájára írd fel", "Jujujuj", "Dobd el a bundáskenyeret!"];
@@ -21,13 +19,43 @@ const answerButtonsElement = document.getElementById('answer-buttons')
 
 
 let jovalaszok = 0
-// Hangeffektek
-var perfect = new Audio()
-var roblox = new Audio()
-var victory = new Audio()
-perfect.src = "wolfsounds/verygood.mp3"
-roblox.src = "wolfsounds/huhaeznehez.mp3"
-victory.src = "wolfsounds/huhaa.mp3"
+// Wolfsounds
+var wolfsounds = [];
+wolfsounds[0] = new Audio();
+wolfsounds[0].src = "wolfsounds/verygood.mp3";
+wolfsounds[1] = new Audio();
+wolfsounds[1].src = "wolfsounds/ultiban.mp3";
+wolfsounds[2] = new Audio();
+wolfsounds[2].src = "wolfsounds/piszkosuligaz.mp3";
+wolfsounds[3] = new Audio();
+wolfsounds[3].src = "wolfsounds/ooaznemleszeleg.mp3";
+wolfsounds[4] = new Audio();
+wolfsounds[4].src = "wolfsounds/mindenkellnektek.mp3";
+wolfsounds[5] = new Audio();
+wolfsounds[5].src = "wolfsounds/mindeen.mp3";
+wolfsounds[6] = new Audio();
+wolfsounds[6].src = "wolfsounds/miafrancér.mp3";
+wolfsounds[7] = new Audio();
+wolfsounds[7].src = "wolfsounds/megtanultatok.mp3";
+wolfsounds[8] = new Audio();
+wolfsounds[8].src = "wolfsounds/lelovom.mp3";
+wolfsounds[9] = new Audio();
+wolfsounds[9].src = "wolfsounds/jasex.mp3";
+wolfsounds[10] = new Audio();
+wolfsounds[10].src = "wolfsounds/huhaeznehez.mp3";
+wolfsounds[11] = new Audio();
+wolfsounds[11].src = "wolfsounds/huhaa.mp3";
+wolfsounds[12] = new Audio();
+wolfsounds[12].src = "wolfsounds/fincsi.mp3";
+wolfsounds[13] = new Audio();
+wolfsounds[13].src = "wolfsounds/eztmegszoptatok.mp3";
+wolfsounds[14] = new Audio();
+wolfsounds[14].src = "wolfsounds/eztmegszoktatokultiban.mp3";
+wolfsounds[15] = new Audio();
+wolfsounds[15].src = "wolfsounds/computerscience.mp3";
+wolfsounds[16] = new Audio();
+wolfsounds[16].src = "wolfsounds/becsuknakabortonbe.mp3";
+
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -36,17 +64,16 @@ nextButton.addEventListener('click', () =>{
 	currentQuestionIndex++
 	setNextQuestion()
 })
-var greetings = ["Szia","Csá","Üdv","Szevasz","Mi a helyzet","Hello","Cső","Jó napot","Csókolom","Hahó"]
 
 function startGame() {
 	if(soundchck.checked) {
 		if(playerName.value != '') {
-		var name = new SpeechSynthesisUtterance(greetings[Math.floor(Math.random() * greetings.length + 1)]+playerName.value);
+		var name = new SpeechSynthesisUtterance(wolfsounds[Math.floor(Math.random() * wolfsounds.length + 1)]+playerName.value);
 		name.rate = 0.5
 		window.speechSynthesis.speak(name);
 	}
 	else {
-		var name = new SpeechSynthesisUtterance(greetings[Math.floor(Math.random() * greetings.length + 1)]+" anonimusz");
+		var name = new SpeechSynthesisUtterance(wolfsounds[Math.floor(Math.random() * wolfsounds.length + 1)]+" anonimusz");
 		name.rate = 0.5;
 		window.speechSynthesis.speak(name);
 	}
@@ -116,13 +143,13 @@ function selectAnswer(e) {
 		if(selectedButton.dataset = correct) {
 		jovalaszok++
 		if(soundchck.checked) {
-		perfect.play()
+		wolfsounds[Math.random() * wolfsounds.length].play();
 	}
 		}
 		else {
 		jovalaszok--
 		if(soundchck.checked) {
-		roblox.play()
+			wolfsounds[Math.random() * wolfsounds.length].play();
 	}
 		}
 	if (shuffledQuestions.length > currentQuestionIndex + 1) {
@@ -133,7 +160,7 @@ function selectAnswer(e) {
 		startButton.classList.remove('hide')
 		if(jovalaszok < shuffledQuestions.length) {
 			if(soundchck.checked) {
-			fail.play()
+				wolfsounds[Math.random() * wolfsounds.length].play();
 		}
 			swal({
 				title: "Ajjaj!",
@@ -155,7 +182,7 @@ function selectAnswer(e) {
 	}
 		if(shuffledQuestions.length == jovalaszok) {
 			if(soundchck.checked) {
-			victory.play()
+				wolfsounds[Math.random() * wolfsounds.length].play();
 		}
 		swal({
 				title: "Gratulálok",
