@@ -1,8 +1,4 @@
 
-// Welcome speech
-var welcomeMsgs = ["Ezeket már áltiba vettük!", "A nagymami tortájára írd fel", "Jujujuj", "Dobd el a bundáskenyeret!"];
-var msg = new SpeechSynthesisUtterance(welcomeMsgs[Math.floor(Math.random() * 4)]);
-msg.rate = 1.75;
 
 var cookiemsg = new SpeechSynthesisUtterance("Most szerintem futhatsz pöcök")
 const startButton = document.getElementById('start-btn')
@@ -75,7 +71,6 @@ function startGame() {
 		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
 		name.play();
 	}
-	window.speechSynthesis.speak(msg);
 	}
 	jovalaszok = 0
 	hide();
