@@ -69,13 +69,11 @@ function startGame() {
 	if(soundchck.checked) {
 		if(playerName.value != '') {
 		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
-		name.rate = 0.5
-		window.speechSynthesis.speak(name);
+		name.play();
 	}
 	else {
 		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
-		name.rate = 0.5;
-		window.speechSynthesis.speak(name);
+		name.play();
 	}
 	window.speechSynthesis.speak(msg);
 	}
