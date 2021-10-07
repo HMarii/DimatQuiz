@@ -68,12 +68,12 @@ nextButton.addEventListener('click', () =>{
 function startGame() {
 	if(soundchck.checked) {
 		if(playerName.value != '') {
-		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length + 1)];
+		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
 		name.rate = 0.5
 		window.speechSynthesis.speak(name);
 	}
 	else {
-		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length + 1)];
+		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
 		name.rate = 0.5;
 		window.speechSynthesis.speak(name);
 	}
