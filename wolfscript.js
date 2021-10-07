@@ -3,7 +3,7 @@
 
 // Welcome speech
 var welcomeMsgs = ["Ezeket már áltiba vettük!", "A nagymami tortájára írd fel", "Jujujuj", "Dobd el a bundáskenyeret!"];
-var msg = new SpeechSynthesisUtterance(welcomeMsgs[Math.floor(Math.random() * 4)]);S
+var msg = new SpeechSynthesisUtterance(welcomeMsgs[Math.floor(Math.random() * 4)]);
 msg.rate = 1.75;
 
 var cookiemsg = new SpeechSynthesisUtterance("Most szerintem futhatsz pöcök")
