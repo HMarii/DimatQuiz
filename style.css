@@ -19,6 +19,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	background-image: url("img/wolfbg.png");
+	background-repeat: no-repeat;
 }
 
 
