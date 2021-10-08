@@ -105,8 +105,10 @@ function showQuestion(question) {
 		button.classList.add('btn')
 		if(answer.correct) {
 			button.dataset.correct = answer.correct
+			button.disabled = true;
+			
 		}
-		button.addEventListener('click', selectAnswer)
+		button.addEventListener('click', selectAnswer,)
 		answerButtonsElement.appendChild(button)
 	})
 }
@@ -134,11 +136,13 @@ function selectAnswer(e) {
 	})
 	
 		if(selectedButton.dataset = correct) {
+			
 		jovalaszok++
 		if(soundchck.checked) {
 			var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
 			name.play();
 	}
+			
 		}
 		else {
 		jovalaszok--
