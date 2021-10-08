@@ -90,7 +90,7 @@ function hide() {
 function setNextQuestion() {
 	resetState()
 	showQuestion(shuffledQuestions[currentQuestionIndex])
-	if(soundchck.checked) {
+	if(soundchck.checked && !name.paused) {
 	var q = new SpeechSynthesisUtterance(document.getElementById("question").innerHTML)
 	q.rate = 1.75;
 	window.speechSynthesis.speak(q)
