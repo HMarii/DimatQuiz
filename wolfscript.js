@@ -1,6 +1,4 @@
 
-
-var cookiemsg = new SpeechSynthesisUtterance("Most szerintem futhatsz pöcök")
 const startButton = document.getElementById('start-btn')
 const playerName = document.getElementById('playerName')
 const nextButton = document.getElementById('next-btn')
@@ -51,6 +49,14 @@ wolfsounds[15] = new Audio();
 wolfsounds[15].src = "wolfsounds/computerscience.mp3";
 wolfsounds[16] = new Audio();
 wolfsounds[16].src = "wolfsounds/becsuknakabortonbe.mp3";
+wolfsounds[17] = new Audio();
+wolfsounds[17].src = "wolfsounds/ahogyrangatom.mp3";
+wolfsounds[18] = new Audio();
+wolfsounds[18].src = "wolfsounds/bendeguzsaysomething.mp3";
+wolfsounds[19] = new Audio();
+wolfsounds[19].src = "wolfsounds/ennyiidonemvolteleghogyswallow.mp3";
+wolfsounds[20] = new Audio();
+wolfsounds[20].src = "wolfsounds/ooohaelkapjakooo.mp3";
 
 
 let shuffledQuestions, currentQuestionIndex
@@ -63,14 +69,9 @@ nextButton.addEventListener('click', () =>{
 
 function startGame() {
 	if(soundchck.checked) {
-		if(playerName.value != '') {
 		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
-		name.play();
-	}
-	else {
-		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
-		name.play();
-	}
+		//name.play();
+
 	}
 	jovalaszok = 0
 	hide();
@@ -90,10 +91,9 @@ function hide() {
 function setNextQuestion() {
 	resetState()
 	showQuestion(shuffledQuestions[currentQuestionIndex])
-	if(soundchck.checked && !name.paused) {
-	var q = new SpeechSynthesisUtterance(document.getElementById("question").innerHTML)
-	q.rate = 1.75;
-	window.speechSynthesis.speak(q)
+	if(soundchck.checked) {
+		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+		name.play();
 }
 }
 
@@ -136,13 +136,15 @@ function selectAnswer(e) {
 		if(selectedButton.dataset = correct) {
 		jovalaszok++
 		if(soundchck.checked) {
-		wolfsounds[Math.random() * wolfsounds.length].play();
+			var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+			name.play();
 	}
 		}
 		else {
 		jovalaszok--
 		if(soundchck.checked) {
-			wolfsounds[Math.random() * wolfsounds.length].play();
+			var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+			name.play();
 	}
 		}
 	if (shuffledQuestions.length > currentQuestionIndex + 1) {
@@ -153,11 +155,12 @@ function selectAnswer(e) {
 		startButton.classList.remove('hide')
 		if(jovalaszok < shuffledQuestions.length) {
 			if(soundchck.checked) {
-				wolfsounds[Math.random() * wolfsounds.length].play();
+				var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+				name.play();
 		}
 			swal({
-				title: "Ajjaj!",
-				text: "Basszus pöcök ez nem sikerült, próbáld meg mégegyszer!",
+				title: "Hoppácska!",
+				text: "Ez nem jött össze, pedig ezeket mind vetted áltiban! Na majd a pót ZH-ban.",
 				icon: "warning"
 			})
 
@@ -175,29 +178,30 @@ function selectAnswer(e) {
 	}
 		if(shuffledQuestions.length == jovalaszok) {
 			if(soundchck.checked) {
-				wolfsounds[Math.random() * wolfsounds.length].play();
+				var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+				name.play();
 		}
 		swal({
-				title: "Gratulálok",
-				text: "Ügyes vagy pöcök",
+				title: "Hoppácska",
+				text: "Ez fincsi volt",
 				icon: "success",
-				button: "Hol van öregmaci?"
+				button: "Átmentem?"
 			}).then(function(){
 				var img = document.createElement("img");
-				document.body.style.backgroundImage = "url('oldmaci.jpg')"
+				document.body.style.backgroundImage = "url('img/ellentmondas.png')"
 				document.body.style.backgroundRepeat = "no-repeat"
 				document.body.style.backgroundSize = "80% 100%"
 				document.body.style.backgroundPosition = "top"
 				document.getElementById('container').style.background = "none"
 				document.getElementById('start-btn').style.display = "none"
-				document.getElementById('answer-buttons').innerHTML = "Error"
-				document.getElementById('question').innerHTML = "404"
+				document.getElementById('answer-buttons').innerHTML = "Ellentmondásra jutottunk"
+				document.getElementById('question').innerHTML = "Hoppácska"
 				if(soundchck.checked) {
-				cookiemsg.rate = 0.75
-				window.speechSynthesis.speak(cookiemsg);
+					var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+					name.play();
 			}
 			}).catch(function(reason){
-				alert("A keksz elutasítva a felhasználó által: "+reason)
+				alert("Ez nem volt fincsi: "+reason)
 			});
 	}
 
@@ -221,66 +225,67 @@ function clearStatusClass(element) {
 // Kérdések & Válaszok
 const questions = [
 	{
-		question: "Mennyi 2 meg 2 ?",
+		question: "Mit nevezünk meghatározottsági axiómának?",
 		answers: [
-			{ text: '4', correct: true},
-			{ text: '22', correct: false},
-			{ text: 'Sok', correct: false},
-			{ text: 'Nemtom', correct: false}
+			{ text: 'Sanyit', correct: false},
+			{ text: 'A és B halmazoknak ugyanazok az elemeik', correct: false},
+			{ text: 'Azt, hogy két halmaz nem bizonytalan', correct: false},
+			{ text: 'Az a és B halmaz akkor és csak akkor egyenlő, ha ugyanazok az elemeik', correct: true}
 		]
 	},
 		{
-		question: "Hány éves pingu?",
+		question: "Mit nevezünk részhalmaznak?",
 		answers: [
-			{ text: '6', correct: true},
-			{ text: '18', correct: false},
-			{ text: '101', correct: false},
-			{ text: '65', correct: false}
+			{ text: 'Minden A halmazra és minden F(x) formulára létezik egy B halmaz, amelyhez A-nak pontosan azok az x elemei tartoznak, amelyekre F(x) igaz.', correct: true},
+			{ text: 'Azt, hogy egy halmaz nincs józan állapotban.', correct: false},
+			{ text: 'A halmaznak egy részét.', correct: false},
+			{ text: 'Minden A halmazra és minden F(x) formulára létezik egy B halmaz, amelyhez B-nek pontosan azok az x elemei tartoznak, amelyekre F(x) igaz.', correct: false},
+			
 		]
 	},
 	{
-		question: "Mikor született oldmaci?",
+		question: "Mikor diszjunkt két halmaz?",
 		answers: [
-			{ text: '1989', correct: false},
-			{ text: '1956', correct: false},
-			{ text: '2010', correct: false},
-			{ text: '1999', correct: true}
+			{ text: 'Ha uniójuk üres', correct: false},
+			{ text: 'Ha a kuka üres', correct: false},
+			{ text: 'Ha metszetük üres', correct: true},
+			{ text: 'Ha a farkas éhes', correct: false}
 		]
 	},
 	{
-		question: "Mi németül Kőszeg?",
+		question: "Mit nevezünk tételnek?",
 		answers: [
-			{ text: 'Güns', correct: true},
-			{ text: 'Kiseg', correct: false},
-			{ text: 'Guns', correct: false},
-			{ text: 'Pöcök', correct: false}
+			{ text: 'Mindig hamis értéket adó formulák', correct: false},
+			{ text: 'A torta receptjét', correct: false},
+			{ text: 'Mindig igaz értéket adó formulák', correct: true},
+			{ text: 'A bundáskenyeret', correct: false}
 		]
 	},
 	{
-		question: "Mivel jár az egyetem?",
+		question: "Mi az az ekvivalenciareláció?",
 		answers: [
-			{ text: 'Diplomával', correct: false},
-			{ text: 'Busszal', correct: false},
-			{ text: 'Sok stresszel', correct: true},
-			{ text: 'Bebaszással', correct: false}
+			{ text: 'Valencia fővárosa', correct: false},
+			{ text: 'Egy focicsapat', correct: false},
+			{ text: 'Ha egy homogén binér reláció reflexív, tranzitív és szimmetrikus', correct: true},
+			{ text: 'Ha egy homogén unér reláció reflexív, tranzitív és szimmetrikus', correct: false}
 		]
 	},
 	{
-		question: "Ki Kőszeg alpolgármestere?",
+		question: "Mikor mondjuk azt, hogy szigorú részbenrendezés egy reláció?",
 		answers: [
-			{ text: 'Terplán Zoltán', correct: true},
-			{ text: 'Básthy Béla', correct: false},
-			{ text: 'Gyurcsány Ferenc', correct: false},
-			{ text: 'Rába Kálmán', correct: false}
+			{ text: 'Ha nem látunk tisztán a részegség miatt', correct: false},
+			{ text: 'Ha a reláció reflexes, transzfesztita és asszimetrikus', correct: false},
+			{ text: 'Ha a reláció reflexív, tranzitív és antiszimmetrikus', correct: true},
+			{ text: 'Ha a párkapcsolatom bonyolult', correct: false}
 		]
 	},
 	{
-		question: "Ki fedezte fel a C vitamint?",
+		question: "Megbuktok az első ZH-n?",
 		answers: [
-			{ text: 'Szent-Györgyi Albert', correct: true},
-			{ text: 'Pöcök', correct: false},
-			{ text: 'Kiss Lajos Csaba', correct: false},
-			{ text: 'Dóra a felfedező', correct: false}
+			{ text: 'Igen', correct: true},
+			{ text: 'Fincsi', correct: true},
+			{ text: 'Hoppácska', correct: true},
+			{ text: 'Nem, hiszen ezeket áltiban vettük', correct: false}
 		]
 	},
 
