@@ -135,7 +135,7 @@ function selectAnswer(e) {
 	})
 	
 		if(selectedButton.dataset = correct) {
-			selectedButton.disabled = true;
+			selectedButton.dataset.disabled = true;
 		jovalaszok++
 		if(soundchck.checked) {
 			var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
@@ -145,7 +145,7 @@ function selectAnswer(e) {
 		}
 		else {
 		jovalaszok--
-		selectedButton.disabled = true;
+		selectedButton.dataset.disabled = true;
 		if(soundchck.checked) {
 			var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
 			name.play();
