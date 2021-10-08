@@ -106,7 +106,7 @@ function showQuestion(question) {
 		if(answer.correct) {
 			button.dataset.correct = answer.correct
 			button.disabled = true;
-			
+			answerButtonsElement.disabled = true;
 		}
 		button.addEventListener('click', selectAnswer,)
 		answerButtonsElement.appendChild(button)
