@@ -105,8 +105,7 @@ function showQuestion(question) {
 		button.classList.add('btn')
 		if(answer.correct) {
 			button.dataset.correct = answer.correct
-			button.disabled = true;
-			answerButtonsElement.disabled = true;
+			
 		}
 		button.addEventListener('click', selectAnswer,)
 		answerButtonsElement.appendChild(button)
@@ -136,7 +135,7 @@ function selectAnswer(e) {
 	})
 	
 		if(selectedButton.dataset = correct) {
-			
+			answerButtonsElement.disabled = true;
 		jovalaszok++
 		if(soundchck.checked) {
 			var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
@@ -146,6 +145,7 @@ function selectAnswer(e) {
 		}
 		else {
 		jovalaszok--
+		answerButtonsElement.disabled = true;
 		if(soundchck.checked) {
 			var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
 			name.play();
