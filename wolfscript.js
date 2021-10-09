@@ -6,6 +6,7 @@ const soundchck = document.getElementById('soundchck')
 const soundlbl = document.getElementById('soundlbl')
 
 
+
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
@@ -57,6 +58,38 @@ wolfsounds[19] = new Audio();
 wolfsounds[19].src = "wolfsounds/ennyiidonemvolteleghogyswallow.mp3";
 wolfsounds[20] = new Audio();
 wolfsounds[20].src = "wolfsounds/ooohaelkapjakooo.mp3";
+wolfsounds[21] = new Audio();
+wolfsounds[21].src = "wolfsounds/koszi.mp3";
+wolfsounds[22] = new Audio();
+wolfsounds[22].src = "wolfsounds/wolflaugh.mp3";
+
+wolfsoundsGood = [];
+wolfsoundsBad = [];
+wolfsoundsNeutral = [];
+
+wolfsoundsGood[0] = wolfsounds[0];
+wolfsoundsBad[0] = wolfsounds[1];
+wolfsoundsGood[1] = wolfsounds[2];
+wolfsoundsBad[1] = wolfsounds[3];
+wolfsoundsBad[2] = wolfsounds[4];
+wolfsoundsGood[2] = wolfsounds[5];
+wolfsoundsBad[3] = wolfsounds[6];
+wolfsoundsNeutral[0] = wolfsounds[7];
+wolfsoundsNeutral[1] = wolfsounds[10];
+wolfsoundsBad[4] = wolfsounds[8];
+wolfsoundsGood[3] = wolfsounds[9];
+wolfsoundsGood[4] = wolfsounds[11];
+wolfsoundsGood[5] = wolfsounds[12];
+wolfsoundsBad[5] = wolfsounds[13];
+wolfsoundsNeutral[2] = wolfsounds[14];
+wolfsoundsNeutral[3] = wolfsounds[15];
+wolfsoundsBad[6] = wolfsounds[16];
+wolfsoundsGood[6] = wolfsounds[17];
+wolfsoundsNeutral[4] = wolfsounds[18];
+wolfsoundsBad[7] = wolfsounds[19];
+wolfsoundsNeutral[5] = wolfsounds[20];
+wolfsoundsGood[7] = wolfsounds[21];
+wolfsoundsBad[8] = wolfsounds[22];
 
 
 let shuffledQuestions, currentQuestionIndex
@@ -92,7 +125,7 @@ function setNextQuestion() {
 	resetState()
 	showQuestion(shuffledQuestions[currentQuestionIndex])
 	if(soundchck.checked) {
-		var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+		var name = wolfsoundsNeutral[Math.floor(Math.random() * wolfsoundsNeutral.length)];
 		name.play();
 }
 }
@@ -105,8 +138,8 @@ function showQuestion(question) {
 		button.classList.add('btn')
 		if(answer.correct) {
 			button.dataset.correct = answer.correct
-			button.disabled = true;
-			answerButtonsElement.disabled = true;
+			
+			
 		}
 		button.addEventListener('click', selectAnswer,)
 		answerButtonsElement.appendChild(button)
@@ -128,26 +161,33 @@ function resetState() {
 
 function selectAnswer(e) {
 
+
 	const selectedButton = e.target
 	const correct = selectedButton.dataset.correct
+	
 	setStatusClass(document.body, correct)
 	Array.from(answerButtonsElement.children).forEach(button => {
 		setStatusClass(button, button.dataset.correct)
 	})
 	
 		if(selectedButton.dataset = correct) {
-			
+			Array.from(answerButtonsElement.children).forEach(button => {
+				button.disabled = true;
+			})
 		jovalaszok++
 		if(soundchck.checked) {
-			var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+			var name = wolfsoundsGood[Math.floor(Math.random() * wolfsoundsGood.length)];
 			name.play();
 	}
 			
 		}
 		else {
 		jovalaszok--
+		Array.from(answerButtonsElement.children).forEach(button => {
+			button.disabled = true;
+		})
 		if(soundchck.checked) {
-			var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+			var name = wolfsoundsBad[Math.floor(Math.random() * wolfsoundsBad.length)];
 			name.play();
 	}
 		}
@@ -155,16 +195,16 @@ function selectAnswer(e) {
 		nextButton.classList.remove('hide')
 	}
 	else {
-		startButton.innerText = 'Újra'
+		startButton.innerText = 'Ăjra'
 		startButton.classList.remove('hide')
 		if(jovalaszok < shuffledQuestions.length) {
 			if(soundchck.checked) {
-				var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+				var name = wolfsoundsBad[Math.floor(Math.random() * wolfsoundsBad.length)];
 				name.play();
 		}
 			swal({
-				title: "Hoppácska!",
-				text: "Ez nem jött össze, pedig ezeket mind vetted áltiban! Na majd a pót ZH-ban.",
+				title: "HoppĂĄcska!",
+				text: "Ez nem jĂśtt Ăśssze, pedig ezeket mind vetted ĂĄltiban! Na majd a pĂłt ZH-ban.",
 				icon: "warning"
 			})
 
@@ -182,14 +222,14 @@ function selectAnswer(e) {
 	}
 		if(shuffledQuestions.length == jovalaszok) {
 			if(soundchck.checked) {
-				var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+				var name = wolfsoundsGood[Math.floor(Math.random() * wolfsoundsGood.length)];
 				name.play();
 		}
 		swal({
-				title: "Hoppácska",
+				title: "HoppĂĄcska",
 				text: "Ez fincsi volt",
 				icon: "success",
-				button: "Átmentem?"
+				button: "Ătmentem?"
 			}).then(function(){
 				var img = document.createElement("img");
 				document.body.style.backgroundImage = "url('img/ellentmondas.png')"
@@ -198,10 +238,10 @@ function selectAnswer(e) {
 				document.body.style.backgroundPosition = "top"
 				document.getElementById('container').style.background = "none"
 				document.getElementById('start-btn').style.display = "none"
-				document.getElementById('answer-buttons').innerHTML = "Ellentmondásra jutottunk"
-				document.getElementById('question').innerHTML = "Hoppácska"
+				document.getElementById('answer-buttons').innerHTML = "EllentmondĂĄsra jutottunk"
+				document.getElementById('question').innerHTML = "HoppĂĄcska"
 				if(soundchck.checked) {
-					var name = wolfsounds[Math.floor(Math.random() * wolfsounds.length)];
+					var name = wolfsoundsGood[Math.floor(Math.random() * wolfsoundsGood.length)];
 					name.play();
 			}
 			}).catch(function(reason){
