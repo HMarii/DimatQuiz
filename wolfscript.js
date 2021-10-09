@@ -139,10 +139,7 @@ function showQuestion(question) {
 		if(answer.correct) {
 			button.dataset.correct = answer.correct
 			
-<<<<<<< HEAD
 			
-=======
->>>>>>> 179b78f3727a4fe2c76559bf4ea023d55c802cdd
 		}
 		button.addEventListener('click', selectAnswer,)
 		answerButtonsElement.appendChild(button)
@@ -174,13 +171,9 @@ function selectAnswer(e) {
 	})
 	
 		if(selectedButton.dataset = correct) {
-<<<<<<< HEAD
 			Array.from(answerButtonsElement.children).forEach(button => {
 				button.disabled = true;
 			})
-=======
-			selectedButton.disabled = true;
->>>>>>> 179b78f3727a4fe2c76559bf4ea023d55c802cdd
 		jovalaszok++
 		if(soundchck.checked) {
 			var name = wolfsoundsGood[Math.floor(Math.random() * wolfsoundsGood.length)];
@@ -190,13 +183,9 @@ function selectAnswer(e) {
 		}
 		else {
 		jovalaszok--
-<<<<<<< HEAD
 		Array.from(answerButtonsElement.children).forEach(button => {
 			button.disabled = true;
 		})
-=======
-		selectedButton.disabled = true;
->>>>>>> 179b78f3727a4fe2c76559bf4ea023d55c802cdd
 		if(soundchck.checked) {
 			var name = wolfsoundsBad[Math.floor(Math.random() * wolfsoundsBad.length)];
 			name.play();
@@ -206,7 +195,7 @@ function selectAnswer(e) {
 		nextButton.classList.remove('hide')
 	}
 	else {
-		startButton.innerText = 'Ăjra'
+		startButton.innerText = 'Újra'
 		startButton.classList.remove('hide')
 		if(jovalaszok < shuffledQuestions.length) {
 			if(soundchck.checked) {
@@ -214,8 +203,8 @@ function selectAnswer(e) {
 				name.play();
 		}
 			swal({
-				title: "HoppĂĄcska!",
-				text: "Ez nem jĂśtt Ăśssze, pedig ezeket mind vetted ĂĄltiban! Na majd a pĂłt ZH-ban.",
+				title: "Hoppácska!",
+				text: "Ez nem jött össze, pedig ezeket mind vetted áltiban! Na majd a pót ZH-ban.",
 				icon: "warning"
 			})
 
@@ -237,10 +226,10 @@ function selectAnswer(e) {
 				name.play();
 		}
 		swal({
-				title: "HoppĂĄcska",
+				title: "Hoppácska",
 				text: "Ez fincsi volt",
 				icon: "success",
-				button: "Ătmentem?"
+				button: "Átmentem?"
 			}).then(function(){
 				var img = document.createElement("img");
 				document.body.style.backgroundImage = "url('img/ellentmondas.png')"
@@ -249,8 +238,8 @@ function selectAnswer(e) {
 				document.body.style.backgroundPosition = "top"
 				document.getElementById('container').style.background = "none"
 				document.getElementById('start-btn').style.display = "none"
-				document.getElementById('answer-buttons').innerHTML = "EllentmondĂĄsra jutottunk"
-				document.getElementById('question').innerHTML = "HoppĂĄcska"
+				document.getElementById('answer-buttons').innerHTML = "Ellentmondásra jutottunk"
+				document.getElementById('question').innerHTML = "Hoppácska"
 				if(soundchck.checked) {
 					var name = wolfsoundsGood[Math.floor(Math.random() * wolfsoundsGood.length)];
 					name.play();
