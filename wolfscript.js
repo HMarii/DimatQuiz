@@ -139,7 +139,10 @@ function showQuestion(question) {
 		if(answer.correct) {
 			button.dataset.correct = answer.correct
 			
+<<<<<<< HEAD
 			
+=======
+>>>>>>> 179b78f3727a4fe2c76559bf4ea023d55c802cdd
 		}
 		button.addEventListener('click', selectAnswer,)
 		answerButtonsElement.appendChild(button)
@@ -171,9 +174,13 @@ function selectAnswer(e) {
 	})
 	
 		if(selectedButton.dataset = correct) {
+<<<<<<< HEAD
 			Array.from(answerButtonsElement.children).forEach(button => {
 				button.disabled = true;
 			})
+=======
+			selectedButton.disabled = true;
+>>>>>>> 179b78f3727a4fe2c76559bf4ea023d55c802cdd
 		jovalaszok++
 		if(soundchck.checked) {
 			var name = wolfsoundsGood[Math.floor(Math.random() * wolfsoundsGood.length)];
@@ -183,9 +190,13 @@ function selectAnswer(e) {
 		}
 		else {
 		jovalaszok--
+<<<<<<< HEAD
 		Array.from(answerButtonsElement.children).forEach(button => {
 			button.disabled = true;
 		})
+=======
+		selectedButton.disabled = true;
+>>>>>>> 179b78f3727a4fe2c76559bf4ea023d55c802cdd
 		if(soundchck.checked) {
 			var name = wolfsoundsBad[Math.floor(Math.random() * wolfsoundsBad.length)];
 			name.play();
